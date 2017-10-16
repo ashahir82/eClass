@@ -1,0 +1,33 @@
+<ion-view view-title="My Courses" cache-view=false>
+  <ion-content overflow-scroll="false">
+	<div ng-if="hasData === false">
+		<ion-list>
+			<ion-item>
+			You're not enrolled in any courses.
+			</ion-item>
+		</ion-list>
+	</div>
+    <div ng-if="hasData === true">
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" ng-model="query" placeholder="Search Module">
+			</label>
+		</div>
+		<div class="list card" ng-repeat="item in items | filter: query">
+			<div class="item item-divider">
+				<h2> {{ item.name }}</h2>
+				<p>{{ item.code }}</p>
+			</div>
+			<a href="#/app/topicmenu/{{ topic.topic }}/{{ topic.name }}" class="item" ng-repeat="topic in item.topics">
+				<h3>LE{{ topic.leno }}</h3>
+				<p>{{ topic.name }}</p>
+				<span class="badge badge-assertive" ng-if="topic.active == null">Not Enrolled</span>
+				<span class="badge badge-dark" ng-if="topic.active == 0">Withdrawn</span>
+				<span class="badge badge-energized" ng-if="topic.active == 1 && (topic.quiz === '0' || topic.note === '0')">Incompleted</span>
+				<span class="badge badge-balanced" ng-if="topic.active == 1 && topic.quiz === '1' && topic.note === '1'">Completed</span>
+			</a>
+		</div>
+    </div>
+  </ion-content>
+</ion-view>

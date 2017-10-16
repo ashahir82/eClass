@@ -1,0 +1,32 @@
+<ion-header-bar align-title="center" class="bar-positive">
+	<h1 class="title">eClass</h1>
+</ion-header-bar>
+<ion-content overflow-scroll="false">
+	<section class="content-header">
+	</section>
+	<section class="content-container">
+		<img class="content-icon" src="./img/eclass-ico.png"/>
+		<div class = "login-title header text-center">
+			<h3>Welcome back...</h3>
+		</div>
+		<form ng-submit="doLogin()">
+			<div class="list list-inset">
+				<label class="item item-input">
+					<i class="icon ion-person placeholder-icon"></i>
+					<input type="text" placeholder="Username" ng-model="loginData.username">
+				</label>
+				<label class="item item-input">
+					<i class="icon ion-locked placeholder-icon"></i>
+					<input type="password" placeholder="Password" ng-model="loginData.password">
+				</label>
+				<button class="button button-block button-balanced" type="submit">
+					Sign in
+				</button>
+			</div>
+		</form>
+	</section>
+	<div class="header text-center">
+		<div class="link" ng-click="forgot()"><strong>Forgot password?</strong></div> Not yet registered? <div class="link" ng-click="signup()"><strong>Sign up now!</strong></div>
+		<!-- <strong><a href="/#/forget">Forgot password?</a></strong> Not yet registered? <strong><a href="/#/register">Sign up now!</a></strong> -->
+	</div>
+</ion-content>

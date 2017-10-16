@@ -1,0 +1,34 @@
+<ion-view view-title="{{ topicName }}" cache-view=false>
+	<ion-nav-bar class="bar-positive">
+		<!-- The left navigation button -->
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+			</button>
+		</ion-nav-buttons>
+	  
+		<!-- The right navigation button -->
+		<ion-nav-buttons side="right">
+			<button class="button button-icon button-clear ion-android-close" ng-click="quit(topicId, topicName)">
+			</button>
+		</ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="false">
+        <ion-slide-box on-slide-changed="slideChanged(index)" ng-if="items" show-pager=false">
+            <ion-slide ng-repeat="item in items">
+				<div class="padding">
+					<h4>{{ item.title }}</h4>
+					<p>{{ item.content }}</p>
+				</div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-assertive">
+        <div class="buttons">
+            <button class="button icon-left ion-chevron-left" ng-click="previous()" ng-show="slideIndex > 0">Previous</button>
+        </div>
+        <h1 class="title">{{slideIndex + 1}} / {{totalSlide + 1}}</h1>
+        <div class="buttons">
+			<button class="button icon-right ion-chevron-right" ng-click="next()" ng-hide="slideIndex == totalSlide">Next</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

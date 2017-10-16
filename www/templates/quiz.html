@@ -1,0 +1,117 @@
+<ion-view view-title="{{ topicName }}" cache-view=false>
+	<ion-nav-bar class="bar-positive">
+		<!-- The left navigation button -->
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+			</button>
+		</ion-nav-buttons>
+	  
+		<!-- The right navigation button -->
+		<ion-nav-buttons side="right">
+			<button class="button button-icon button-clear ion-android-close" ng-click="quit(topicId, topicName)">
+			</button>
+		</ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="false">
+		<div class="row div-stable quizProg" ng-show="!submitAnswer">
+			<div class="col">
+				<h4>Progress: <span ng-if="items">{{counter | formatTimer}}</span></h4>
+				<div class="button-toolbar">
+					<button class="button button-small"
+						ng-repeat="item in items"
+						ng-class="{'button-balanced': item.selected !== null, 'button-assertive': item.selected === null}" 
+						ng-click="goto($index)">
+						<span class="icon"
+                                ng-class="{'ion-checkmark': item.selected !== null, 'ion-help': item.selected === null}">
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="row div-stable quizProg" ng-show="submitAnswer">
+			<div class="col">
+				<h4>Result:</h4>
+				<div class="button-toolbar">
+					<button class="button button-small"
+						ng-repeat="item in items"
+						ng-class="{'button-balanced': item.correct === true, 'button-assertive': item.correct === false}" 
+						ng-click="goto($index)">
+						<span class="icon"
+                                ng-class="{'ion-checkmark': item.correct === true, 'ion-close': item.correct === false}">
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<ion-slide-box on-slide-changed="slideChanged(index)" ng-if="items" show-pager=false ng-init="lockSlide()">
+			<ion-slide ng-repeat="item in items">
+				<h4 class="padding">{{ item.text }}</h4>
+				<ion-list>
+					<ion-radio
+					ng-repeat="answer in item.answers" 
+					ng-model="answers[$parent.$index]" 
+					ng-click="selectAnswer($parent.$index, $index)"
+					ng-disabled="submitAnswer" 
+					class="isCorrect_{{answer.selected}}"
+					value="{{ answer.answer }}"
+					name="quest_{{$parent.$index}}_answers">
+					{{ answer.answer }}
+					</ion-radio>
+				</ion-list>
+			</ion-slide>
+			<ion-slide>
+				<div class="padding" ng-show="!submitAnswer">
+					<h4 class="padding">Are you sure you want to submit your answers?</h4>
+					<button class="button button-block button-balanced" ng-click="showResult()">Yes</button>
+					<button class="button button-block button-assertive" ng-click="cancelSubmit()">No</button>
+				</div>
+				<div class="padding showResult" ng-show="submitAnswer">
+					<div class="row">
+						<div class="col">
+							<h1>{{totalScore}}%</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="col-demo">
+								<h1>{{items.length}}</h1>
+								TOTAL
+							</div>
+						</div>
+						<div class="col">
+							<div class="col-demo">
+								<h1>{{correctCount}}</h1>
+								CORRECT
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="col-demo">
+								<h1>{{uncorrectCount}}</h1>
+								INCORRECT
+							</div>
+						</div>
+						<div class="col">
+							<div class="col-demo">
+								<h1>{{unAnswer}}</h1>
+								UNANSWERED
+							</div>
+						</div>
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+            <button class="button icon-left ion-chevron-left" ng-click="previous()" ng-show="slideIndex > 0">Previous</button>
+        </div>
+        <h1 class="title" ng-hide="slideIndex > totalSlide">{{slideIndex + 1}} / {{totalSlide + 1}}</h1>
+        <div class="buttons">
+            <button class="button icon-right ion-chevron-right" ng-click="next()" ng-hide="slideIndex >= totalSlide" ng-if="items">Next</button>
+			<button class="button icon-right ion-chevron-right" ng-click="next()" ng-show="slideIndex == totalSlide && !submitAnswer" ng-if="items">Submit</button>
+			<button class="button icon-right ion-chevron-right" ng-click="next()" ng-show="slideIndex == totalSlide && submitAnswer" ng-if="items">Result</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view view-title="{{ editData.username }}" cache-view=false>
+	<ion-nav-bar class="bar-positive">
+		<!-- The left navigation button -->
+		<ion-nav-buttons side="left">
+			<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+			</button>
+		</ion-nav-buttons>
+	  
+		<!-- The right navigation button -->
+		<ion-nav-buttons side="right">
+			<a class="button button-icon button-clear ion-locked" href="#/app/password/{{ editData.username }}">
+			</a>
+		</ion-nav-buttons>
+    </ion-nav-bar>
+	<ion-content overflow-scroll="false">
+		<div class="imageTitle">
+			<img src="./img/education.jpg"/>
+		</div>
+		<div>
+			<form ng-submit="saveProfile()">
+				<div class="list">
+					<label class="item item-input">
+						<span class="input-label">Fullname</span>
+						<input type="text" ng-model="editData.fullname">
+					</label>
+					<label class="item item-input">
+						<span class="input-label">Email</span>
+						<input type="text" ng-model="editData.email">
+					</label>
+					<ion-toggle
+						ng-model="editData.active" 
+						ng-checked="editData.active">
+						Active
+					</ion-toggle>
+					<div class="padding">
+						<button class="button button-block button-balanced" type="submit">
+							Save
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>

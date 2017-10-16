@@ -1,0 +1,29 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <div class="button button-icon button-clear ion-chevron-left" ng-click="login()">
+        Back
+    </div>
+    <h1 class="title">Reset Password</h1>
+</ion-header-bar>
+<ion-content overflow-scroll="false">
+	<section class="content-header">
+	</section>
+	<section class="content-container">
+		<img class="content-icon" src="./img/unlocked.png"/>
+		<div class = "login-title header text-center">
+			<p>Please enter your username and registered email address for verification.</p>
+		</div>
+		<form ng-submit="doForgot()">
+			<div class="list list-inset">
+				<label class="item item-input">
+					<i class="icon ion-person placeholder-icon"></i>
+					<input type="text" placeholder="Username" ng-model="forgotData.username">
+				</label>
+				<label class="item item-input">
+					<i class="icon ion-email placeholder-icon"></i>
+					<input type="text" placeholder="Email" ng-model="forgotData.email">
+				</label>
+				<button class="button button-block button-assertive" type="submit">Reset password</button>
+			</div>
+		</form>
+	</section>
+</ion-content>

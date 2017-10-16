@@ -1,0 +1,143 @@
+/* Empty. Add your own CSS if you like */
+/* Link Color */
+.link {
+	color : #387ef5;
+	cursor: pointer;
+	text-decoration: underline;
+	display : inline;
+}
+/* Div Color */
+div .div-balanced {
+    border-color: #28a54c;
+    background-color: #33cd5f;
+    color: #fff;
+}
+
+div .div-assertive {
+    border-color: #e42112;
+    background-color: #ef473a;
+    color: #fff;
+}
+
+div .div-stable {
+    border-color: #b2b2b2;
+    background-color: #f8f8f8;
+    color: #fff;
+}
+
+div .div-calm {
+    border-color: #0a9dc7;
+    background-color: #11c1f3;
+    color: #fff;
+}
+
+div .div-energized {
+    border-color: #e6b500;
+    background-color: #ffc900;
+    color: #fff;
+}
+
+/* Font Color */
+.color-balanced {
+    color: #28a54c;
+}
+
+.color-assertive {
+    color: #e42112;
+}
+
+.color-stable {
+    color: #b2b2b2;
+}
+
+.color-calm {
+    color: #0a9dc7;
+}
+
+.color-energized {
+    color: #ffc900;
+}
+
+/* Login menu */
+.login-title.header { -webkit-flex: 4; padding: 80px 10px 0px; }
+.content-header {
+    display: flex;
+    background: #11c1f3;
+    height: 100px;
+    border-bottom: 3px solid #444444;
+}
+.content-container .list-inset .item-input {
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+.content-container .content-icon {
+    border: 3px solid #444444;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 64px); 
+}
+.dashView .col { padding: 0 !important; }
+.dashView .dashViewTitle {
+    background: #444444;
+    color: #fff;
+    border: 1px solid #444444;
+    font-weight: bold;
+    text-shadow: 1px 1px #000000;
+}
+.imageTitle {
+    display: flex;
+    background: #79b6b1;
+}
+.imageTitle img {
+    margin: 0 auto;
+}
+.bookCover img {
+    margin: 20px auto;
+    height: 300px;
+}
+.bookCover {
+    display: flex;
+    background: #ddd;
+	border-bottom: 5px solid #545454;
+	box-shadow: 0 0 5px #111;
+}
+.button-toolbar button {
+	margin-right: 2px;
+}
+
+.col-demo {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    background: #f7f7f7;
+    text-align: center;
+}
+
+/* Quiz */
+.quizProg {
+	border-bottom: 2px solid #444444  !important;
+}
+.isCorrect_true input:checked + .radio-content .item-content{
+	background-color: #33cd5f;
+}
+
+.isCorrect_false input:checked + .radio-content .item-content{
+	background-color: #ef473a;
+}
+
+.isCorrect_correct input + .radio-content .item-content{
+	background-color: #ffc900;
+}
+.showResult .row .col {
+	text-align: center;
+}
+
+/* Report */
+.boxPadding {
+	display: block;
+	padding: 16px 0;
+	border-bottom: 1px;
+	border-style: dotted;
+}

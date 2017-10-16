@@ -1,0 +1,30 @@
+<ion-view view-title="{{ courseName }}" cache-view=false>
+	<ion-content overflow-scroll="false">
+		<div class="imageTitle">
+			<img src="./img/education.jpg"/>
+		</div>
+		<div ng-if="hasData === false">
+			<ion-list>
+                <ion-item>
+                No Module found in this Course.
+                </ion-item>
+            </ion-list>
+		</div>
+		<div ng-if="hasData === true">
+			<div class="list list-inset">
+				<label class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="text" ng-model="query" placeholder="Search Module">
+				</label>
+			</div>
+			<ion-list>
+				<ion-item ng-repeat="item in items | filter: query"
+					href="#/app/topic/{{ item.id }}/{{ item.name }}">
+					<h2>{{ item.code }}</h2>
+					<p>{{ item.name }}</p>
+					<span class="badge" ng-class="{'badge-balanced': item.CountT != 0, 'badge-assertive': item.CountT == 0}" >{{ item.CountT }}</span>
+				</ion-item>
+			</ion-list>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,78 @@
+<ion-view view-title="Report Card" cache-view=false>
+  <ion-content overflow-scroll="false">
+	<div ng-if="hasData === false">
+		<ion-list>
+			<ion-item>
+			You're not enrolled in this topic.
+			</ion-item>
+		</ion-list>
+	</div>
+    <div ng-if="hasData === true">
+		<div class="list" ng-repeat="item in items">
+			<div class="item item-divider div-energized">
+				<h3>LE{{ item.leno }} - {{ item.name }}</h3>
+				<p ng-if="item.active === '1'">Enrolled on {{ item.datetime }}</p>
+				<p ng-if="item.active === '0'">Withdrawn on {{ item.withdraw }}</p>
+			</div>
+			<div class="item">
+				<h2>Status</h2>
+				<span class="badge badge-assertive" ng-if="item.active === null">Not Enrolled</span>
+				<span class="badge badge-dark" ng-if="item.active === '0'">Withdraw</span>
+				<span class="badge badge-energized" ng-if="item.active === '1' && (item.quiz === '0' || item.note === '0')">Incompleted</span>
+				<span class="badge badge-balanced" ng-if="item.active === '1' && item.quiz === '1' && item.note === '1'">Completed</span>
+			</div>
+			<div class="item">
+				<h2>Completion</h2>
+				<div class="boxPadding">
+					<h4>Note : <span ng-if="item.note === '0'" class="color-assertive">Incompleted</span><span ng-if="item.note === '1'" class="color-balanced">Completed</span></h4>
+					<p ng-if="item.note === '1'">Completed on {{ item.note_datetime }}</p>
+				</div>
+				<div class="boxPadding">
+					<h4>Quiz : <span ng-if="item.quiz === '0'" class="color-assertive">Incompleted</span><span ng-if="item.quiz === '1'" class="color-balanced">Completed</span></h4>
+					<p ng-if="item.quiz === '1'">Completed on {{ item.quiz_datetime }}</p>
+				</div>
+			</div>
+			<div class="item item-divider div-calm">
+				<h2>Quiz Score</h2>
+				<p ng-if="item.scoreCOUNT === '0'">Not started</p>
+			</div>
+			<div class="item item-divider" ng-if="item.scoreCOUNT !== '0'">
+				<div class="row">
+					<div class="col">
+						<div class="col-demo">
+							<h1>{{item.scoreCOUNT}}</h1>
+							Attempted
+						</div>
+					</div>
+					<div class="col">
+						<div class="col-demo">
+							<h1>{{item.scoreAVG}}</h1>
+							Average Score
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="col-demo">
+							<h1>{{item.scoreMAX}}</h1>
+							Highest Score
+						</div>
+					</div>
+					<div class="col">
+						<div class="col-demo">
+							<h1>{{item.scoreMIN}}</h1>
+							Lowest Score
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item" ng-repeat="score in item.scores">
+				<p>{{ score.datetime }}</p>
+				<span class="badge"
+				ng-class="{'badge-balanced': score.mark >= 50, 'badge-assertive': score.mark < 50}">
+				{{ score.mark }}%</span>
+			</div>
+		</div>
+    </div>
+  </ion-content>
+</ion-view>

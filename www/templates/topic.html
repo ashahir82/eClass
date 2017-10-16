@@ -1,0 +1,27 @@
+<ion-view view-title="{{ moduleName }}" cache-view=false>
+    <ion-content overflow-scroll="false">
+        <div class="imageTitle">
+            <img src="./img/education.jpg"/>
+        </div>
+		<div ng-if="hasData === false">
+			<ion-list>
+                <ion-item>
+                No Topic found in this Module.
+                </ion-item>
+            </ion-list>
+		</div>
+        <div ng-if="hasData === true">
+            <ion-list>
+                <ion-item ng-repeat="item in items"
+                href="#/app/topicmenu/{{ item.topic_id }}/{{ item.name }}">
+                <h2>LE{{ item.le_no }}</h2>
+				<p>{{ item.name }}</p>
+				<span class="badge badge-assertive" ng-if="!item.active">Not Enrolled</span>
+				<span class="badge badge-dark" ng-if="item.active === '0'">Withdrawn</span>
+				<span class="badge badge-balanced" ng-if="item.active === '1' && item.note === '1' && item.quiz === '1'">Completed</span>
+				<span class="badge badge-energized" ng-if="item.active === '1' && (item.note === '0' || item.quiz === '0')">Incompleted</span>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

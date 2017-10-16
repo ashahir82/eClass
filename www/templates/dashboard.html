@@ -1,0 +1,68 @@
+<ion-view view-title="Dashboard">
+    <ion-content overflow-scroll="false">
+        <div class="dashView row responsive-sm">
+            <div class="card col">
+                <div class="dashViewTitle item">
+                Available Course
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="row">
+                        <div class="col col-75">Access to all courses that eClass is currently offering. Go here to review and select course to enroll in.</div>
+                        <div class="col text-center col-center">
+                            <a href="#/app/browse">
+                                <img src="./img/computer.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card col">
+                <div class="dashViewTitle item">
+                My Courses
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="row">
+                        <div class="col col-75">Review your enrolled courses to check on assigned and registered courses as well as the status of completion.</div>
+                        <div class="col text-center col-center">
+                            <a href="#/app/courses/{{username}}">
+                                <img src="./img/bookshelf.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashView row responsive-sm">
+            <div class="card col">
+                <div class="dashViewTitle item">
+                Resources
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="row">
+                        <div class="col col-75">Find additional resources to help with your continued education and development.</div>
+                        <div class="col text-center col-center">
+                            <a href="#">
+                                <img src="./img/toolbox.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card col">
+                <div class="dashViewTitle item">
+                Transcript
+                </div>
+                <div class="item item-text-wrap col-center">
+                    <div class="row">
+                        <div class="col col-75">View your record of completed courses and print your cetificates.</div>
+                        <div class="col text-center">
+                            <a href="#">
+                                <img src="./img/document.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view view-title="{{ topicName }}" cache-view=false>
+    <ion-content overflow-scroll="false">
+        <div class="bookCover">
+            <img src="./img/book_cover_front.jpg"/>
+        </div>
+        <div class="padding"  ng-repeat="item in items">
+            <h4>Learning Experience {{ item.le_no }}</h4>
+            <h2>{{ topicName }}</h2>
+            <p>{{ item.description }}</p>
+			
+			<!-- show if not enroll -->
+			<div ng-show="!item.enroll">
+				<button class="button button-block icon-left ion-plus-circled button-assertive" ng-click="showConfirm()">
+					Enroll
+				</button>
+			</div>
+			
+			<!-- show if not enroll -->
+			<div ng-show="item.enroll">
+				<button class="button button-block icon-left ion-minus-circled button-assertive" ng-click="showWithdraw()">
+					Withdraw
+				</button>
+			</div>
+			
+			<!-- show if enroll -->
+			<div ng-show="item.enroll">
+				<div ng-if="item.note">
+					<a href="#/app/note/{{ item.topic_id }}/{{ item.name }}"
+					class="button button-block icon-left ion-document-text button-balanced">
+						Note
+					</a>
+				</div>
+				<div ng-if="item.quiz">
+					<a href="#/app/quiz/{{ item.topic_id }}/{{ item.name }}"
+					class="button button-block icon-left ion-help-circled button-energized">
+						Quiz
+					</a>
+				</div>
+			</div>
+        </div>
+    </ion-content>
+</ion-view>
