@@ -22,8 +22,8 @@ angular.module('starter.services', ['ngCookies'])
 
 .factory('SysConfig', function() {
 	return {
-		getLink : 'http://localhost/eClass/mobile/'
+		//getLink : 'http://localhost/eClass/mobile/'
 		//getLink : 'http://192.168.0.106:8080/eClass/mobile/'
-		//getLink : 'http://www.ilpkl.gov.my/eClass/mobile/'
+		getLink : 'http://www.ilpkl.gov.my/eClass/mobile/'
 	}
 })

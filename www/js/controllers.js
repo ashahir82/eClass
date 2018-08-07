@@ -352,7 +352,7 @@ angular.module('starter.controllers', [])
 		$scope.items = data;
 		$scope.totalSlide = $scope.items.length - 1;
 		$ionicLoading.hide();
-		$scope.counter = $scope.totalSlide * 90;
+		$scope.counter = $scope.totalSlide * 30;
 		$scope.startCounter = function() {
 			updateCounter();
 		};

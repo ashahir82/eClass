@@ -19,8 +19,8 @@
 				<h2> {{ item.name }}</h2>
 				<p>{{ item.code }}</p>
 			</div>
-			<a href="#/app/topicmenu/{{ topic.topic }}/{{ topic.name }}" class="item" ng-repeat="topic in item.topics">
-				<h3>LE{{ topic.leno }}</h3>
+			<a href="#/app/topicmenu/{{ topic.topic_id }}/{{ topic.name }}" class="item" ng-repeat="topic in item.topics">
+				<h3>LE{{ topic.le_no }}</h3>
 				<p>{{ topic.name }}</p>
 				<span class="badge badge-assertive" ng-if="topic.active == null">Not Enrolled</span>
 				<span class="badge badge-dark" ng-if="topic.active == 0">Withdrawn</span>
